@@ -24,6 +24,7 @@ cd fast-food-billing-system
 ```
 
 2. **⚙️ Backend Setup (Flask)**
+   
    Make sure Python is installed.
 
 Run the Flask server:
@@ -41,13 +42,8 @@ py server.py
 This will start the backend on the default port (e.g., _http://localhost:5000_).
 
 3. **🎨 Frontend Setup (React)**
-   Navigate to the frontend directory:
-
-```
-cd frontend
-```
-
-Install the dependencies:
+   
+Navigate back to the app folder and install the dependencies:
 
 ```
 npm install
