@@ -3,6 +3,14 @@ import { useCartContext } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "../css/Cart.css";
 
+interface CartItem {
+    id: number;
+    name: string;
+    description: string;
+    imageUrl: string;
+    price: number;
+    quantity: number;
+}
 function CartPage() {
     const { cart, removeFromCart, addToCart } = useCartContext();
     const [showModal, setShowModal] = useState(false);
@@ -22,18 +30,20 @@ function CartPage() {
 
     // Increment the quantity of an item in the cart
     function incrementQuantity(itemId: number) {
-        const item = cart.find((item) => item.id === itemId);
+        const item = cart.find((item: CartItem) => item.id === itemId);
         if (item) {
             addToCart({ ...item, quantity: item.quantity + 1 });
         }
     }
     const clearCart = () => {
         localStorage.removeItem("cart"); // Clear the cart from local storage
-        cart.forEach((item) => removeFromCart(item.id)); // Clear all items from the cart state
+        cart.forEach((item: CartItem) => removeFromCart(item.id));
+ // Clear all items from the cart state
     };
     // Decrement the quantity of an item in the cart
     function decrementQuantity(itemId: number) {
-        const item = cart.find((item) => item.id === itemId);
+        const item = cart.find((item: CartItem) => item.id === itemId);
+
         if (item && item.quantity > 1) {
             addToCart({ ...item, quantity: item.quantity - 1 });
         } else if (item) {
@@ -44,7 +54,8 @@ function CartPage() {
     // Calculate the total price of items in the cart
     const calculateTotal = () => {
         return cart
-            .reduce((total, item) => total + item.price * item.quantity, 0)
+            .reduce((total: number, item: CartItem) => total + item.price * item.quantity, 0)
+
             .toFixed(2);
     };
 
@@ -62,10 +73,13 @@ function CartPage() {
             user_id: `USER-${Date.now()}-${Math.floor(Math.random() * 1000)}`, // Generate a unique user ID
             phone: phoneNumber,
             paymentMethod: "cash", // Default payment method
-            dishes: cart.map((item) => ({
-                dish_id: item.id,
-                quantity: item.quantity,
-            })),
+            dishes: cart.map((item: CartItem) => ({
+  id: item.id,
+  name: item.name,
+  quantity: item.quantity,
+  price: item.price
+}))
+
         };
 
         try {
@@ -129,7 +143,7 @@ function CartPage() {
         <div className="cart">
             <h2>Your Cart</h2>
             <div className="cart-items">
-                {cart.map((item) => (
+                {cart.map((item: CartItem) => (
                     <div key={item.id} className="cart-item">
                         {/* Image Section */}
                         <img

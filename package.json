@@ -1,6 +1,7 @@
 {
   "name": "canteendine",
   "private": true,
+  "homepage": "https://GowsiSM.github.io/CanteenDine_DBMS",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
