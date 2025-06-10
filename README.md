@@ -107,7 +107,10 @@ Transactions :
 
 Make sure your MongoDB is running and the connection string in your Flask app (server.py) points to your MongoDB instance.
 
-## **_🔥 Note:_**
+## **_🔗Live Preview:_**
+https://gowsism.github.io/CanteenDine_DBMS/
+
+## **_⚠️ Note:_**
 
 - Make sure MongoDB is running before starting the backend.
 - Images of dishes can be stored either as URLs or in base64 format depending on how you handle them on the frontend.
@@ -121,4 +124,4 @@ Whether it's fixing bugs 🐞, improving the UI 🎨, or adding new features �
 
 If you have suggestions or spot any issues, don’t hesitate to open an issue 📬.
 
-# Let’s build something awesome together! 💡✨
+## Let’s build something awesome together! 💡✨
